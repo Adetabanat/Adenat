@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   "Software Development",
@@ -50,13 +51,23 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 lg:grid-cols-6">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <Link href="/" className="inline-block">
-            <h2 className="text-3xl font-extrabold leading-none">ADENAT</h2>
+         <Link href="/" className="flex items-center gap-3">
+  <Image
+    src="/adenat_logo.png"
+    alt="ADENAT SOLUTIONS & ENTERPRISE Logo"
+    width={56}
+    height={56}
+    className="rounded-md"
+  />
 
-            <p className="mt-1 text-lg font-bold text-teal-400">
-              SOLUTIONS & ENTERPRISE
-            </p>
-          </Link>
+  <div>
+    <h2 className="text-2xl font-extrabold leading-none">ADENAT</h2>
+
+    <p className="mt-1 text-sm font-bold text-teal-400">
+      SOLUTIONS & ENTERPRISE
+    </p>
+  </div>
+</Link>
 
           <p className="mt-10 max-w-xs text-lg leading-8 text-slate-300">
             Building custom software, websites, and enterprise systems for

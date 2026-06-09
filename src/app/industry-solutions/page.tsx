@@ -1,76 +1,10 @@
-const industrySolutions = [
-  {
-    title: "Education",
-    description:
-      "School management systems, learning platforms, online assessment systems, student portals, and digital academic tools.",
-    solutions: [
-      "School Management System",
-      "Learning Management System",
-      "Online Assessment Platform",
-      "Student & Parent Portal",
-    ],
-  },
-  {
-    title: "Healthcare",
-    description:
-      "Hospital and clinic systems that support patient records, appointments, billing, pharmacy, and laboratory operations.",
-    solutions: [
-      "Hospital Management System",
-      "Clinic Management Software",
-      "Patient Records",
-      "Appointment Scheduling",
-    ],
-  },
-  {
-    title: "Religious Organizations",
-    description:
-      "Church systems for managing membership, donations, events, ministries, attendance, and communication.",
-    solutions: [
-      "Church Management System",
-      "Member Records",
-      "Donation Management",
-      "Event Management",
-    ],
-  },
-  {
-    title: "Businesses & Startups",
-    description:
-      "Business automation systems that help companies manage customers, sales, operations, staff, and reporting.",
-    solutions: [
-      "CRM Systems",
-      "ERP Systems",
-      "Business Automation",
-      "Custom Dashboards",
-    ],
-  },
-  {
-    title: "Construction & Real Estate",
-    description:
-      "Digital tools and consultancy support for building projects, property management, documentation, and project tracking.",
-    solutions: [
-      "Property Management",
-      "Project Tracking",
-      "Building Consultancy",
-      "Documentation Support",
-    ],
-  },
-  {
-    title: "NGOs & Development Organizations",
-    description:
-      "Systems for project monitoring, beneficiary tracking, reporting, donor management, and organizational efficiency.",
-    solutions: [
-      "Beneficiary Management",
-      "Project Monitoring",
-      "Donor Reporting",
-      "Data Management",
-    ],
-  },
-];
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { industrySolutions } from "../../data/industrySolutions";
 
 export default function IndustrySolutionsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Page Hero */}
       <section className="bg-slate-950 px-6 py-24 text-white">
         <div className="mx-auto max-w-7xl">
           <p className="font-semibold uppercase tracking-wide text-teal-300">
@@ -89,35 +23,44 @@ export default function IndustrySolutionsPage() {
         </div>
       </section>
 
-      {/* Industry Cards */}
       <section className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {industrySolutions.map((industry) => (
-              <div
-                key={industry.title}
-                className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <h2 className="text-2xl font-bold text-slate-900">
-                  {industry.title}
-                </h2>
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4">
+            {industrySolutions.map((industry) => {
+              const Icon = industry.icon;
 
-                <p className="mt-4 text-slate-600">
-                  {industry.description}
-                </p>
+              return (
+                <Link
+                  href={`/industry-solutions/${industry.slug}`}
+                  key={industry.title}
+                  className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-teal-300 hover:shadow-2xl"
+                >
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-teal-100 opacity-0 blur-2xl transition duration-300 group-hover:opacity-100" />
 
-                <div className="mt-6 space-y-2">
-                  {industry.solutions.map((solution) => (
-                    <div
-                      key={solution}
-                      className="rounded-lg bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
-                    >
-                      {solution}
+                  <div className="relative z-10">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-slate-900 text-white shadow-lg shadow-teal-100 transition duration-300 group-hover:scale-110">
+                      <Icon size={28} />
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+
+                    <h2 className="mt-7 text-xl font-bold text-slate-900 transition group-hover:text-teal-700">
+                      {industry.title}
+                    </h2>
+
+                    <p className="mt-4 text-sm leading-7 text-slate-600">
+                      {industry.description}
+                    </p>
+
+                    <div className="mt-7 flex items-center gap-2 text-sm font-bold text-teal-600">
+                      <span>Explore solution</span>
+                      <ArrowUpRight
+                        size={16}
+                        className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

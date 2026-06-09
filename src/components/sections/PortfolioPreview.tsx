@@ -33,8 +33,7 @@ export default function PortfolioPreview() {
                     </div>
 
                     <Link
-
-                        href={`/portfolio/${projects.slug}`}
+                        href="/portfolio"
                         className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900 shadow-sm transition hover:border-teal-500 hover:text-teal-600"
                     >
                         View Portfolio
@@ -49,7 +48,7 @@ export default function PortfolioPreview() {
 
                         return (
                             <Link
-                                href="/portfolio"
+                                href={`/portfolio/${project.slug}`}
                                 key={project.title}
                                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-teal-300 hover:bg-white hover:shadow-2xl"
                             >

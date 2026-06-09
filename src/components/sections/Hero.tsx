@@ -42,7 +42,7 @@ export default function Hero() {
         {/* Right Image */}
         <div>
           <Image
-            src="/hero-new.png"
+            src="/hero1.png"
             alt="ADENAT Team"
             width={700}
             height={600}
